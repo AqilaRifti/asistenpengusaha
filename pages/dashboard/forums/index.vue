@@ -1,0 +1,3 @@
+<template>
+    Forums page
+</template>
