@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --->
+
 <script setup lang="ts">
 import { cn } from '@/lib/utils'
 
@@ -28,12 +29,26 @@ const input = ref('')
 const inputLength = computed(() => input.value.trim().length)
 
 const messages = ref([
-  { role: 'agent', content: 'Hi, how can I help you today?' },
+  { role: 'assistant', content: 'Hi, how can I help you today?' },
   { role: 'user', content: 'Hey, I\'m having trouble with my account.' },
-  { role: 'agent', content: 'What seems to be the problem?' },
-  { role: 'user', content: 'I can\'t log in.' },
+  { role: 'assistant', content: 'What seems to be the problem?' },
 ])
-
+async function fetchAnswer() {
+  try {
+    const response = await $fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: "POST",
+        headers: {
+            authorization: "Bearer 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"
+        },
+        body: {
+            messages: messages.value,
+            stream: false,
+            model: 'llama3-8b-8192'
+        }
+    });
+    messages.value.push(response.choices[0].message)
+  } catch {}
+}
 </script>
 
 <template>
@@ -78,6 +93,7 @@ const messages = ref([
             content: input,
           })
           input = ``
+          fetchAnswer()
         }"
       >
         <Input v-model="input" placeholder="Type a message..." class="flex-1" />

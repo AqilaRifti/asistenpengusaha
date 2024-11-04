@@ -15,14 +15,14 @@ const UserDisplayName = ref<string | null>(userDisplayName.value);
 
 const components: { title: string, iconSVG: string, href: string, description: string }[] = [
   {
-    title: 'SNBT',
+    title: 'Copywriting',
     iconSVG: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>`,
     href: '/docs/components/alert-dialog',
     description:
       'Siap bersaing? Tes SNBT adalah kunci untuk perguruan tinggi!',
   },
   {
-    title: 'CPNS',
+    title: 'Pembuat Foto',
     iconSVG: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-landmark"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>`,
     href: '/docs/components/hover-card',
     description:
@@ -63,18 +63,18 @@ const components: { title: string, iconSVG: string, href: string, description: s
 <template>
   <header class="z-10 top-0 flex h-16 px-4 justify-between md:px-6 mx-6">
     <nav
-      class="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center  md:text-sm"
+      class="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center  md:text-sm min-w-5xl" 
     >
       <NuxtLink to="#" class="flex items-center gap-2 text-base font-semibold">
         <img src="/logo.png" alt="icon" style="max-width: 40px" />
-        <h1 class="inter-font text-base">Akademi Pelajar</h1>
+        <h1 class="inter-font text-base">Asisten Pengusaha</h1>
         <span class="sr-only">AP Org</span>
       </NuxtLink>
 
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Layanan Bimbel</NavigationMenuTrigger>
+            <NavigationMenuTrigger>Layanan untuk UMKM</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul
                 class="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[minmax(0,.75fr)_minmax(0,1fr)]"
@@ -91,7 +91,7 @@ const components: { title: string, iconSVG: string, href: string, description: s
                       />
                       <div class="mb-2 mt-4 text-lg font-medium">Akademi Pelajar</div>
                       <p class="text-sm leading-tight text-muted-foreground">
-                        Bimbel GRATIS untuk semua, mari menuju Indonesia Emas 2045!
+                        Asisten Pengusaha untuk UMKM Ekspor, menuju Indonesia Emas 2045!
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -105,12 +105,12 @@ const components: { title: string, iconSVG: string, href: string, description: s
                     >
                       <div class="flex items-center">
                         <LucideMessageSquareText :size="16" />
-                        <h2 class="text-sm font-medium leading-none ml-1">Chat AI</h2>
+                        <h2 class="text-sm font-medium leading-none ml-1">Layanan 24/7</h2>
                       </div>
                       <p
                         class="line-clamp-2 text-sm leading-snug text-muted-foreground"
                       >
-                        Tanya jawab untuk membantu melawan kesulitanmu!
+                        Sediakan Chatbot AI untuk menjawab pertanyaan pelanggan!
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -123,12 +123,12 @@ const components: { title: string, iconSVG: string, href: string, description: s
                     >
                       <div class="flex items-center">
                         <LucideBookCopy :size="16" />
-                        <h2 class="text-sm font-medium leading-none ml-1">Materi</h2>
+                        <h2 class="text-sm font-medium leading-none ml-1">Panduan & pelatihan</h2>
                       </div>
                       <p
                         class="line-clamp-2 text-sm leading-snug text-muted-foreground"
                       >
-                        Pelajari berbagai materi dengan simpel, elegan, dan berbobot.
+                        Pelajari cara mengekspor dengan simpel, elegan, dan berbobot.
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -140,40 +140,13 @@ const components: { title: string, iconSVG: string, href: string, description: s
                       class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
                       <div class="flex items-center">
-                        <LucidePencilLine :size="16" />
-                        <h2 class="text-sm font-medium leading-none ml-1">Latihan Soal</h2>
+                        <LucideTv :size="16" />
+                        <h2 class="text-sm font-medium leading-none ml-1">Kampanye Promosi</h2>
                       </div>
                       <p
                         class="line-clamp-2 text-sm leading-snug text-muted-foreground"
                       >
-                        Mempersiapkan bertemu dengan berbagai tantangan esensial.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Persiapan Tes</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul
-                class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]"
-              >
-                <li v-for="component in components" :key="component.title">
-                  <NavigationMenuLink as-child>
-                    <a
-                      :href="component.href"
-                      class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                    >
-                      <div class="text-sm font-medium leading-none flex items-center gap-1">
-                        <i v-html="component.iconSVG"></i>
-                        <p v-html="component.title"></p>
-                      </div>
-                      <p
-                        class="line-clamp-2 text-sm leading-snug text-muted-foreground"
-                      >
-                        {{ component.description }}
+                        Saatnya menunjukkan produkmu di mata dunia!
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -183,10 +156,11 @@ const components: { title: string, iconSVG: string, href: string, description: s
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink
-              href="/docs/introduction"
+              href="/market"
               :class="navigationMenuTriggerStyle()"
             >
-              Feed
+            <p class="mr-1">Permintaan Pasar Global</p>
+            <LucideChartNoAxesCombined :size="16"/>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
@@ -212,7 +186,6 @@ const components: { title: string, iconSVG: string, href: string, description: s
       </SheetContent>
     </Sheet>
     <div class="flex items-center gap-4 md:gap-2 lg:gap-4" style="z-index: 11;">
-      <DashboardCommand />
       <DropdownMenu v-if="isUserLoggedIn">
         <DropdownMenuTrigger as-child>
           <Button variant="secondary" size="icon" class="rounded-full">
@@ -229,19 +202,6 @@ const components: { title: string, iconSVG: string, href: string, description: s
           <DropdownMenuItem @click="logout">Logout</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <section v-else class="flex gap-1">
-        <NuxtLink to="/login">
-          <Button class="p-4 text-bold" variant="secondary">
-            Masuk
-          </Button>
-        </NuxtLink>
-        <NuxtLink to="/register">
-          <Button class="p-4 text-bold">
-            Daftar
-          </Button>
-        </NuxtLink>
-
-      </section>
     </div>
   </header>
 </template>

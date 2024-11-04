@@ -21,14 +21,14 @@ useHead({
       <div class="landing-page">
         <div class="content flex flex-col gap-2">
           <h1 class="font-extrabold text-6xl text-white">
-            Belajar Lebih Cerdas! <br />
+            Transformasi UMKM! <br />
             Raih Indonesia Emas 2045
           </h1>
           <p class="font-extralight text-lg text-gray-300 max-w-3xl">
-            Akademi Pelajar adalah <i>platform</i> yang menyediakan bimbingan
-            belajar dan lingkungan belajar dengan menggunakan
+            Asisten Pengusaha adalah <i>platform</i> yang menyediakan panduan
+            dan layanan-layanan untuk membantu UMKM ekspor dengan menggunakan
             <i>Artificial Intelligence</i>
-            yang bertujuan untuk membantu para pelajar dalam pencarian ilmunya
+            yang bertujuan untuk membantu para pengusaha dalam mencari nafkah.
           </p>
           <section class="flex gap-2 justify-center items-center">
             <NuxtLink to="/register">
@@ -50,8 +50,6 @@ useHead({
       <div
         style="max-width: 100vw !important; overflow: hidden !important"
       ></div>
-
-      <TOEFLOrbit />
     </main>
   </div>
 </template>

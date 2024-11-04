@@ -1,12 +1,8 @@
 import { useState, useRouter } from '#app';
-import { createClient } from '@supabase/supabase-js';
 import type { Session } from '@supabase/supabase-js';
 
-
-const supabaseURL = "https://jtrgsgxexzfagzucgmal.supabase.co"
-const privateSupabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0cmdzZ3hleHpmYWd6dWNnbWFsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyNzQxNjYwOSwiZXhwIjoyMDQyOTkyNjA5fQ.n3Mg4GnDpz_mMVvPa-kT9OckKJoxZEOWH-XR5HueP98"
 // @ts-ignore
-const supabase = createClient(supabaseURL, privateSupabaseKey);
+const supabase: any = useNuxtApp().$supabase;
 
 
 export const useAuth = () => {
