@@ -4,6 +4,7 @@ const supabase: any = useNuxtApp().$supabase;
 const route = useRoute()
 const router = useRouter()
 const colorMode = useColorMode()
+colorMode.preference = "dark"
 const userEmail = ref<string | null>(null)
 const UserDisplayName = ref<string | null>(null)
 
@@ -82,19 +83,19 @@ getUserDisplayName()
           to="/dashboard/tasks"
           :class="['text-foreground transition-colors hover:text-foreground', {'text-muted-foreground': !(currentPage === 'tasks')}]"
         >
-          Tasks
+          Market
         </NuxtLink>
         <NuxtLink
           to="/dashboard/notes"
           :class="['text-foreground transition-colors hover:text-foreground', {'text-muted-foreground': !(currentPage === 'notes')}]"
         >
-          Notes
+          Produk
         </NuxtLink>
         <NuxtLink
           to="/dashboard/chats"
           :class="['text-foreground transition-colors hover:text-foreground', {'text-muted-foreground': !(currentPage === 'chats')}]"
         >
-          Chats
+          Pelatihan
         </NuxtLink>
         <NuxtLink
           to="/dashboard/tests"
@@ -115,68 +116,6 @@ getUserDisplayName()
           Analysis
         </NuxtLink>
       </nav>
-      <Sheet>
-        <SheetTrigger as-child>
-          <Button
-            variant="outline"
-            size="icon"
-            class="shrink-0 md:hidden"
-          >
-            <LucideMenu class="h-5 w-5" />
-            <span class="sr-only">Toggle navigation menu</span>
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left">
-          <nav class="grid gap-6 text-lg font-medium">
-            <NuxtLink
-              to="#"
-              class="flex items-center gap-2 text-lg font-semibold"
-            >
-                <img src="/logo.png" alt="icon" width="160" />
-                <span class="sr-only">API Org</span>
-            </NuxtLink>
-            <NuxtLink to="/dashboard" :class="['text-foreground transition-colors hover:text-foreground', {'text-muted-foreground': !(currentPage === undefined)}]">
-              Dashboard
-            </NuxtLink>
-            <NuxtLink
-              to="/dashboard/tasks"
-              :class="['text-foreground transition-colors hover:text-foreground', {'text-muted-foreground': !(currentPage === 'tasks')}]"
-            >
-              Tasks
-            </NuxtLink>
-            <NuxtLink
-              to="/dashboard/notes"
-              :class="['text-foreground transition-colors hover:text-foreground', {'text-muted-foreground': !(currentPage === 'notes')}]"
-            >
-              Notes
-            </NuxtLink>
-            <NuxtLink
-              to="/dashboard/chats"
-              :class="['text-foreground transition-colors hover:text-foreground', {'text-muted-foreground': !(currentPage === 'chats')}]"
-            >
-              Chats
-            </NuxtLink>
-            <NuxtLink
-              to="/dashboard/tests"
-              :class="['text-foreground transition-colors hover:text-foreground', {'text-muted-foreground': !(currentPage === 'tests')}]"
-            >
-              Tests
-            </NuxtLink>
-            <NuxtLink
-              to="/dashboard/forums"
-              :class="['text-foreground transition-colors hover:text-foreground', {'text-muted-foreground': !(currentPage === 'forums')}]"
-            >
-              Forums
-            </NuxtLink>
-            <NuxtLink
-              to="/dashboard/analysis"
-              :class="['text-foreground transition-colors hover:text-foreground', {'text-muted-foreground': !(currentPage === 'analysis')}]"
-            >
-              Analysis
-            </NuxtLink>
-          </nav>
-        </SheetContent>
-      </Sheet>
       <div class="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
         <DashboardCommand />
         <DropdownMenu>

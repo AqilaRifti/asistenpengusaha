@@ -1,48 +1,11 @@
 <script setup lang="ts">
-definePageMeta({
-  middleware: 'protectauth',
-});
-import { useToast } from "@/components/ui/toast/use-toast";
-const supabase: any = useNuxtApp().$supabase;
+import { useAuth } from '~/composables/useAuth';
 const displayName = ref("");
 const email = ref("");
 const password = ref("");
-const error: Ref<undefined | string> = ref(undefined);
-const router = useRouter();
-const { toast } = useToast();
 
-async function signUp() {
-  error.value = undefined;
-  try {
-    const { error: signUpError } = await supabase.auth.signUp({
-      email: email.value,
-      password: password.value,
-      options: {
-        data: {
-          displayName: displayName.value,
-        },
-      },
-    });
+const { signUp } = useAuth()
 
-    if (signUpError) {
-      error.value = signUpError.message;
-      toast({
-        title: "Uh Oh, Something went wrong!",
-        description: error.value,
-        variant: "destructive"
-      });
-    } else {
-      router.push("/dashboard");
-    }
-  } catch (err: any) {
-    error.value = err.message;
-    toast({
-      title: "Uh Oh, Something went wrong!",
-      description: error.value,
-      variant: "destructive"
-    });
-  }
-}
 </script>
 
 <template>
@@ -82,7 +45,7 @@ async function signUp() {
             <Label for="password">Password</Label>
             <Input v-model="password" id="password" type="password" />
           </div>
-          <Button type="submit" @click="signUp" class="w-full">
+          <Button type="submit" @click="signUp(email, password, displayName)" class="w-full">
             Create an account
           </Button>
           <Button variant="outline" class="w-full">

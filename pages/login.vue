@@ -1,53 +1,8 @@
 <script setup lang="ts">
-import { useToast } from "@/components/ui/toast/use-toast";
-const supabase: any = useNuxtApp().$supabase;
-const router = useRouter();
-
 const email: Ref<string> = ref("");
 const password: Ref<string> = ref("");
-const error: Ref< undefined | string> = ref(undefined);
-const { toast } = useToast();
+const { passwordAuthLogin } = useAuth()
 
-async function GitHubAuthLogin() {
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: "github",
-  });
-
-  if (error) {
-    console.error("Error with GitHub authentication:", error);
-  } else {
-    console.log("User authenticated with GitHub successfully");
-  }
-}
-
-async function passwordAuthLogin() {
-  console.log("called");
-  error.value = undefined;
-  try {
-    const { error: signUpError } = await supabase.auth.signInWithPassword({
-      email: email.value,
-      password: password.value,
-    });
-
-    if (signUpError) {
-      error.value = signUpError.message;
-      toast({
-        title: "Uh Oh, Something went wrong!",
-        description: error.value,
-        variant: "destructive",
-      });
-    } else {
-      router.push("/dashboard");
-    }
-  } catch (err: any) {
-    toast({
-      title: "Uh Oh, Something went wrong!",
-      description: error.value,
-      variant: "destructive",
-    });
-    error.value = err.message;
-  }
-}
 </script>
 
 <template>
@@ -83,11 +38,7 @@ async function passwordAuthLogin() {
             </div>
             <Input id="password" type="password" v-model="password" required />
           </div>
-          <Button @click="passwordAuthLogin" class="w-full"> Login </Button>
-          <Button @click="GitHubAuthLogin" variant="outline" class="w-full">
-            <LucideGithub class="w-6 h-4" />
-            Login with GitHub
-          </Button>
+          <Button @click="passwordAuthLogin(email, password)" class="w-full"> Login </Button>
         </div>
         <div class="mt-4 text-center text-sm">
           Don't have an account?
