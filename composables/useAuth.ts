@@ -1,12 +1,12 @@
 import { useState, useRouter } from "#app";
 import { createClient } from "@supabase/supabase-js";
 import type { Session } from "@supabase/supabase-js";
+const config = useRuntimeConfig();
 
-const supabaseURL = "https://metvrcwyuulwfyoaquyi.supabase.co";
-const privateSupabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ldHZyY3d5dXVsd2Z5b2FxdXlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIyNzE2ODUsImV4cCI6MjA0Nzg0NzY4NX0.aTiFdjej6wMyGhrxr7ihoogbZ24Y-wvGgKotmM8hM1Q";
+const supabaseURL = config.public.supabaseURL;
+const publicSupabaseKey = config.public.publicSupabaseKey;
 // @ts-ignore
-const supabase = createClient(supabaseURL, privateSupabaseKey);
+const supabase = createClient(supabaseURL, publicSupabaseKey);
 
 export const useAuth = () => {
   const userEmail = useState<string | null>("userEmail", () => null);
