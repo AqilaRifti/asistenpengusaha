@@ -13,7 +13,6 @@ useHead({
 <template>
   <Globe class="h-64 w-full lg:h-full sm:h-72 md:h-96" />
     <main
-      class="border-gray-900 border-x-2 border-dashed"
       style="padding-left: 1rem !important; padding-right: 1rem !important"
     >
       <HomepageNavbar />

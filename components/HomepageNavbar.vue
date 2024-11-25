@@ -1,18 +1,7 @@
 <script setup lang="ts">
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 import { useAuth } from "~/composables/useAuth";
-const { logout, fetchUserDetails, userDisplayName, isUserLoggedIn } = useAuth();
+const { logout, fetchUserDetails, userEmail, isUserLoggedIn } = useAuth();
 fetchUserDetails();
-console.log(userDisplayName.value)
-const UserDisplayNameRef = ref<string | null>(userDisplayName.value);
 </script>
 
 <template>
@@ -36,9 +25,9 @@ const UserDisplayNameRef = ref<string | null>(userDisplayName.value);
               >
                 <li class="row-span-3">
                   <NavigationMenuLink as-child>
-                    <a
+                    <NuxtLink
                       class="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                      href="/"
+                      to="/"
                     >
                       <img src="/logo.png" class="h-6 w-6" />
                       <div class="mb-2 mt-4 text-lg font-medium">
@@ -48,14 +37,14 @@ const UserDisplayNameRef = ref<string | null>(userDisplayName.value);
                         Asisten Pengusaha untuk UMKM Ekspor, menuju Indonesia
                         Emas 2045!
                       </p>
-                    </a>
+                    </NuxtLink>
                   </NavigationMenuLink>
                 </li>
 
                 <li>
                   <NavigationMenuLink as-child>
-                    <a
-                      href="/docs/introduction"
+                    <NuxtLink
+                      to="/dashboard/service"
                       class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
                       <div class="flex items-center">
@@ -69,13 +58,13 @@ const UserDisplayNameRef = ref<string | null>(userDisplayName.value);
                       >
                         Sediakan Chatbot AI untuk menjawab pertanyaan pelanggan!
                       </p>
-                    </a>
+                    </NuxtLink>
                   </NavigationMenuLink>
                 </li>
                 <li>
                   <NavigationMenuLink as-child>
-                    <a
-                      href="/docs/installation"
+                    <NuxtLink
+                      to="/dashboard/guide"
                       class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
                       <div class="flex items-center">
@@ -90,13 +79,13 @@ const UserDisplayNameRef = ref<string | null>(userDisplayName.value);
                         Pelajari cara mengekspor dengan simpel, elegan, dan
                         berbobot.
                       </p>
-                    </a>
+                    </NuxtLink>
                   </NavigationMenuLink>
                 </li>
                 <li>
                   <NavigationMenuLink as-child>
-                    <a
-                      href="/docs/typography"
+                    <NuxtLink
+                      to="/dashboard/promotion"
                       class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
                       <div class="flex items-center">
@@ -110,7 +99,7 @@ const UserDisplayNameRef = ref<string | null>(userDisplayName.value);
                       >
                         Saatnya menunjukkan produkmu di mata dunia!
                       </p>
-                    </a>
+                    </NuxtLink>
                   </NavigationMenuLink>
                 </li>
               </ul>
@@ -119,9 +108,15 @@ const UserDisplayNameRef = ref<string | null>(userDisplayName.value);
         </NavigationMenuList>
       </NavigationMenu>
     </nav>
+
     <Sheet>
       <SheetTrigger as-child>
-        <Button variant="outline" size="icon" class="shrink-0 md:hidden">
+        <Button
+          variant="outline"
+          size="icon"
+          class="shrink-0 md:hidden mt-3"
+          style="z-index: 12 !important"
+        >
           <LucideMenu class="h-5 w-5" />
           <span class="sr-only">Toggle navigation menu</span>
         </Button>
@@ -151,18 +146,26 @@ const UserDisplayNameRef = ref<string | null>(userDisplayName.value);
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>{{ UserDisplayNameRef }}</DropdownMenuLabel>
+          <DropdownMenuLabel>{{ userEmail }}</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Dashboard</DropdownMenuItem>
-          <DropdownMenuItem>Settings</DropdownMenuItem>
+          <NuxtLink to="/dashboard">
+            <DropdownMenuItem> Dashboard </DropdownMenuItem>
+          </NuxtLink>
+          <NuxtLink to="/dashboard/settings">
+            <DropdownMenuItem> Settings </DropdownMenuItem>
+          </NuxtLink>
           <DropdownMenuSeparator />
           <DropdownMenuItem @click="logout">Logout</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
     <div class="flex items-center gap-2" style="z-index: 11" v-else>
-      <Button variant="outline">Masuk</Button>
-      <Button>Daftar</Button>
+      <NuxtLink to="/login">
+        <Button variant="outline">Masuk</Button>
+      </NuxtLink>
+      <NuxtLink to="/register">
+        <Button>Daftar</Button>
+      </NuxtLink>
     </div>
   </header>
 </template>

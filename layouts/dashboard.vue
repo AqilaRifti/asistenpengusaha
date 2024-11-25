@@ -10,7 +10,7 @@ const data = {
   user: {
     name: userDisplayName.value,
     email: userEmail.value,
-    avatar: "/avatars/logo.png",
+    avatar: "/avatars/user.svg",
   },
   teams: [
     {

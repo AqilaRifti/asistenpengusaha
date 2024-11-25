@@ -33,6 +33,7 @@ export const useAuth = () => {
       userEmail.value = session.user.email || null;
       userDisplayName.value = session.user.user_metadata.displayName;
       isUserLoggedIn.value = true;
+      console.log(userEmail.value)
     } else {
       userEmail.value = null;
       userDisplayName.value = null;
