@@ -3,5 +3,5 @@ import StockChart from '~/components/StockChart.vue';
 </script>
 
 <template>
-    <StockChart />
+    <StockChart code="BBCA.JK" />
 </template>

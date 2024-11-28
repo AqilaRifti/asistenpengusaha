@@ -14,19 +14,19 @@ const data = {
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Bakrie & Brothers Tbk",
       logo: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>`,
-      plan: "Enterprise",
+      plan: "Konglomerat",
     },
     {
-      name: "Acme Corp.",
+      name: "Astra International Tbk",
       logo: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-store"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></svg>`,
       plan: "Startup",
     },
     {
-      name: "Evil Corp.",
+      name: "Lippo Karawaci Tbk",
       logo: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-warehouse"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"/><path d="M6 18h12"/><path d="M6 14h12"/><rect width="12" height="12" x="6" y="10"/></svg>`,
-      plan: "Free",
+      plan: "Gratis",
     },
   ],
   navMain: [
@@ -38,11 +38,11 @@ const data = {
       items: [
         {
           title: "Pasar Produk",
-          url: "/dashboard/market",
+          url: "/dashboard/product/market",
         },
         {
           title: "Kelola Produk",
-          url: "#",
+          url: "/dashboard/product/manage",
         },
       ],
     },
@@ -52,16 +52,12 @@ const data = {
       icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${sidebarSVGIconWidth}" height="${sidebarSVGIconHeight}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-megaphone"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>`,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Panduan Kampanye",
+          url: "/dashboard/campaign/guide",
         },
         {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
+          title: "Kelola Kampanye",
+          url: "/dashboard/campaign/manage",
         },
       ],
     },
@@ -356,7 +352,7 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
               <BreadcrumbSeparator class="hidden md:block" />
               <BreadcrumbItem>
                 <BreadcrumbPage>{{
-                  route.path.split("/").at(-1)
+                  route.path.split("/").at(-1)?.replace("%20", " ")
                 }}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>

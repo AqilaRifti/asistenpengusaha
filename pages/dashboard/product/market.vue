@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --->
 <script setup>
+import { cn } from "@/lib/utils";
 const countries = [
   // Africa
   "Algeria",
@@ -298,10 +299,12 @@ const invoices = [
     country: "Afrika Selatan",
   },
 ];
-const selectedCountry = ref("");
-const productName = ref("");
+const messages = ref([]);
+const input = ref("");
+const inputLength = computed(() => input.value.trim().length);
 
-async function cariPermintaan() {
+async function fetchAnswer() {
+  try {
     const response = await $fetch(
       "https://api.groq.com/openai/v1/chat/completions",
       {
@@ -313,17 +316,21 @@ async function cariPermintaan() {
         body: {
           messages: [
             {
-              role: "user",
-              content: `Berikan kode saham yang berhubungan dengan ${productName.value} jawab satu saja kodenya misal "AAPL"`,
+              role: "system",
+              content: `Anda adalah pembantu investor dan UMKM untuk ekspor`,
             },
+            ...messages.value,
           ],
           stream: false,
           model: "llama-3.1-70b-versatile",
         },
       }
-    )
-    navigateTo(`/dashboard/stock/${response.choices[0].message.content}`);
+    );
+    messages.value.push(response.choices[0].message);
+  } catch {}
 }
+const selectedCountry = ref("");
+const productName = ref("");
 </script>
 
 <template>
@@ -347,12 +354,12 @@ async function cariPermintaan() {
             </SelectGroup>
           </SelectContent>
         </Select>
-        <Button type="submit" @click="cariPermintaan"> Cari Permintaan </Button>
+        <Button type="submit"> Cari Permintaan </Button>
       </section>
     </ResizablePanel>
     <ResizableHandle with-handle />
     <ResizablePanel>
-      <section class="border border-indigo-800 min-h-screen p-5 rounded">
+      <section class="border border-indigo-800 min-h-screen p-5 rounded max-w-md">
         <Card>
           <CardHeader class="flex flex-row items-center justify-between">
             <div class="flex items-center space-x-4">
