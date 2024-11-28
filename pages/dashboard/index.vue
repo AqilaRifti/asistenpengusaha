@@ -6,48 +6,48 @@
           <CardHeader
             class="flex flex-row items-center justify-between space-y-0 pb-2"
           >
-            <CardTitle class="text-sm font-medium"> Total Revenue </CardTitle>
+            <CardTitle class="text-sm font-medium"> Total Penghasilan </CardTitle>
             <DollarSign class="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div class="text-2xl font-bold">$45,231.89</div>
-            <p class="text-xs text-muted-foreground">+20.1% from last month</p>
+            <div class="text-2xl font-bold">Rp 1.000.000,00</div>
+            <p class="text-xs text-muted-foreground">+20.1% Lebih banyak dari bulan lalu!</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader
             class="flex flex-row items-center justify-between space-y-0 pb-2"
           >
-            <CardTitle class="text-sm font-medium"> Subscriptions </CardTitle>
+            <CardTitle class="text-sm font-medium"> Pelanggan Setia </CardTitle>
             <Users class="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div class="text-2xl font-bold">+2350</div>
-            <p class="text-xs text-muted-foreground">+180.1% from last month</p>
+            <p class="text-xs text-muted-foreground">+180.1% Lebih banyak dari bulan lalu!</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader
             class="flex flex-row items-center justify-between space-y-0 pb-2"
           >
-            <CardTitle class="text-sm font-medium"> Sales </CardTitle>
+            <CardTitle class="text-sm font-medium"> Penjualan  </CardTitle>
             <CreditCard class="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div class="text-2xl font-bold">+12,234</div>
-            <p class="text-xs text-muted-foreground">+19% from last month</p>
+            <p class="text-xs text-muted-foreground">+19% Lebih banyak dari bulan lalu!</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader
             class="flex flex-row items-center justify-between space-y-0 pb-2"
           >
-            <CardTitle class="text-sm font-medium"> Active Now </CardTitle>
+            <CardTitle class="text-sm font-medium"> Aktif Sekarang </CardTitle>
             <Activity class="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div class="text-2xl font-bold">+573</div>
-            <p class="text-xs text-muted-foreground">+201 since last hour</p>
+            <p class="text-xs text-muted-foreground">+201 Sejak 1 jam yang lalu</p>
           </CardContent>
         </Card>
       </div>
@@ -55,14 +55,14 @@
         <Card class="xl:col-span-2">
           <CardHeader class="flex flex-row items-center">
             <div class="grid gap-2">
-              <CardTitle>Transactions</CardTitle>
+              <CardTitle>Transaksi</CardTitle>
               <CardDescription>
-                Recent transactions from your store.
+                Transaksi terbaru dari tokomu.
               </CardDescription>
             </div>
             <Button as-child size="sm" class="ml-auto gap-1">
               <a href="#">
-                View All
+                  Lihat Semua
                 <ArrowUpRight class="h-4 w-4" />
               </a>
             </Button>
@@ -71,11 +71,11 @@
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Customer</TableHead>
-                  <TableHead class="hidden xl:table-column"> Type </TableHead>
+                  <TableHead>Pelanggan</TableHead>
+                  <TableHead class="hidden xl:table-column"> Tipe </TableHead>
                   <TableHead class="hidden xl:table-column"> Status </TableHead>
-                  <TableHead class="hidden xl:table-column"> Date </TableHead>
-                  <TableHead class="text-right"> Amount </TableHead>
+                  <TableHead class="hidden xl:table-column"> Tanggal </TableHead>
+                  <TableHead class="text-right"> Jumlah </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -88,7 +88,7 @@
                   </TableCell>
                   <TableCell class="hidden xl:table-column"> Sale </TableCell>
                   <TableCell class="hidden xl:table-column">
-                    <Badge class="text-xs" variant="outline"> Approved </Badge>
+                    <Badge class="text-xs" variant="outline"> Diterima </Badge>
                   </TableCell>
                   <TableCell
                     class="hidden md:table-cell lg:hidden xl:table-column"
@@ -126,7 +126,7 @@
                     Subscription
                   </TableCell>
                   <TableCell class="hidden xl:table-column">
-                    <Badge class="text-xs" variant="outline"> Approved </Badge>
+                    <Badge class="text-xs" variant="outline"> Diterima </Badge>
                   </TableCell>
                   <TableCell
                     class="hidden md:table-cell lg:hidden xl:table-column"
@@ -144,7 +144,7 @@
                   </TableCell>
                   <TableCell class="hidden xl:table-column"> Sale </TableCell>
                   <TableCell class="hidden xl:table-column">
-                    <Badge class="text-xs" variant="outline"> Approved </Badge>
+                    <Badge class="text-xs" variant="outline"> Diterima </Badge>
                   </TableCell>
                   <TableCell
                     class="hidden md:table-cell lg:hidden xl:table-column"
@@ -162,7 +162,7 @@
                   </TableCell>
                   <TableCell class="hidden xl:table-column"> Sale </TableCell>
                   <TableCell class="hidden xl:table-column">
-                    <Badge class="text-xs" variant="outline"> Approved </Badge>
+                    <Badge class="text-xs" variant="outline"> Diterima </Badge>
                   </TableCell>
                   <TableCell
                     class="hidden md:table-cell lg:hidden xl:table-column"
@@ -177,7 +177,7 @@
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Recent Sales</CardTitle>
+            <CardTitle>Penjualan Terbaru</CardTitle>
           </CardHeader>
           <CardContent class="grid gap-8">
             <div class="flex items-center gap-4">

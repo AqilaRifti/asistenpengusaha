@@ -253,7 +253,6 @@ products.value = await fetchUserProducts(userID.value);
             <CardTitle>Products</CardTitle>
             <CardDescription>
               Kelola produk anda dan lihat laporan penjualan.
-              {{ products }}
             </CardDescription>
           </CardHeader>
           <CardContent>

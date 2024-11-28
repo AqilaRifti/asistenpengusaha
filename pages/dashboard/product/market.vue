@@ -302,7 +302,7 @@ const invoices = [
 const messages = ref([]);
 const input = ref("");
 const inputLength = computed(() => input.value.trim().length);
-
+const router = useRouter();
 async function fetchAnswer() {
   try {
     const response = await $fetch(
@@ -329,8 +329,35 @@ async function fetchAnswer() {
     messages.value.push(response.choices[0].message);
   } catch {}
 }
+
 const selectedCountry = ref("");
 const productName = ref("");
+async function cariPermintaan() {
+  const response = await $fetch(
+    "https://api.groq.com/openai/v1/chat/completions",
+    {
+      method: "POST",
+      headers: {
+        authorization:
+          "Bearer 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",
+      },
+      body: {
+        messages: [
+          {
+            role: "user",
+            content: `Berikan satu kode saham yang berhubungan dengan ${productName.value} jawab dengan format json {"code": "Ex. AAPL"} (jawablah hanya dengan JSON tidak ada teks diluar JSON!)`,
+          },
+        ],
+        stream: false,
+        model: "llama-3.1-70b-versatile",
+      },
+    }
+  );
+  console.log(response.choices[0].message.content);
+  await navigateTo(
+    `/dashboard/stock/${JSON.parse(response.choices[0].message.content).code}`
+  );
+}
 </script>
 
 <template>
@@ -354,12 +381,14 @@ const productName = ref("");
             </SelectGroup>
           </SelectContent>
         </Select>
-        <Button type="submit"> Cari Permintaan </Button>
+        <Button type="submit" @click="cariPermintaan"> Cari Permintaan </Button>
       </section>
     </ResizablePanel>
     <ResizableHandle with-handle />
     <ResizablePanel>
-      <section class="border border-indigo-800 min-h-screen p-5 rounded max-w-md">
+      <section
+        class="border border-indigo-800 min-h-screen p-5 rounded max-w-md"
+      >
         <Card>
           <CardHeader class="flex flex-row items-center justify-between">
             <div class="flex items-center space-x-4">
